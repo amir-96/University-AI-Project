@@ -1,6 +1,21 @@
 export const graphData = {
   name: "A",
-  children: [],
+  children: [
+    {
+      name: "B",
+      children: [
+        {
+          name: "C",
+          children: [
+            {
+              name: "D",
+              children: [],
+            },
+          ],
+        },
+      ],
+    },
+  ],
 };
 
-export const unitData = [];
+export const existingUnits = [{ name: "A", child: [], isAnswer: false }];
