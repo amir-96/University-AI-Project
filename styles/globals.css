@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.node {
+  background-color: green !important;
+  padding: 0 !important;
+}
+
+.node circle {
+  scale: 3.5;
+}
+
+.node text {
+  rotate: -90deg;
+  transform: translate(-0.65rem, 0px);
+}
