@@ -15,8 +15,14 @@
 .node text {
   rotate: -90deg;
   transform: translate(-0.05rem, 0);
+  transform: rotateY(180deg);
 }
 
 .node {
   cursor: pointer;
+}
+
+#graphContainer svg {
+  display: block;
+  transform: rotateX(180deg);
 }
