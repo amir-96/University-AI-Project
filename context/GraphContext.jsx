@@ -78,8 +78,15 @@ export function GraphDataProvider({ children }) {
     return null;
   };
 
+  const refreshHandler = () => {
+    setData({
+      name: "A",
+      children: [],
+    });
+  };
+
   return (
-    <GraphDataContext.Provider value={{ data, unitAddHandler }}>
+    <GraphDataContext.Provider value={{ data, unitAddHandler, refreshHandler }}>
       {children}
     </GraphDataContext.Provider>
   );

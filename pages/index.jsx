@@ -1,14 +1,12 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { GraphDataContext } from "@/context/GraphContext";
 import { AnimatedTree } from "react-tree-graph";
+import { graphData } from "@/data/data";
+
 import "react-tree-graph/dist/style.css";
 
 export default function Home() {
-  function handleClick(event, nodeKey) {
-    console.log(data[nodeKey].name);
-  }
-
-  const { data, unitAddHandler } = useContext(GraphDataContext);
+  const { data, unitAddHandler, refreshHandler } = useContext(GraphDataContext);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -42,12 +40,7 @@ export default function Home() {
         </button>
       </form>
       <div className="top-12 right-40 flex max-w-[800px] m-auto items-center justify-center rotate-90 border h-fit">
-        <AnimatedTree
-          data={data}
-          height={800}
-          width={800}
-          onClickNode={handleClick}
-        />
+        <AnimatedTree data={data} height={800} width={800} />
       </div>
     </div>
   );
