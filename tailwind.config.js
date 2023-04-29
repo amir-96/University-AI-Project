@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        "tablet": "900px",
+      },
       fontFamily: {
         yekanBakh: ["yekanbakh"],
       },

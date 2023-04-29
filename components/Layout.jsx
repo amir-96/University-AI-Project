@@ -8,10 +8,12 @@ const Layout = ({ title, children, route }) => {
         <title>{title}</title>
       </Head>
 
-      <nav>
-        <Slidebar route={route} />
-      </nav>
-      <main>{children}</main>
+      <div className="flex">
+        <nav>
+          <Slidebar route={route} />
+        </nav>
+        <main>{children}</main>
+      </div>
     </>
   );
 };

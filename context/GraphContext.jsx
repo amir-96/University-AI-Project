@@ -74,6 +74,7 @@ if (savedData) {
 
 export function GraphDataProvider({ children }) {
   const [data, setData] = useState(initialState);
+  const [showAnswer, setShowAnswer] = useState(false);
 
   const unitAddHandler = (parentName, childName, nodeIsAnswer) => {
     const newData = { ...data };
@@ -82,7 +83,7 @@ export function GraphDataProvider({ children }) {
     if (parentNode) {
       // Check if child with same name already exists in the tree
       if (findObjectByName(newData, childName.toUpperCase())) {
-        console.log("Child node with same name already exists");
+        alert("Child node with same name already exists");
         return;
       }
 
@@ -91,15 +92,13 @@ export function GraphDataProvider({ children }) {
         (child) => child.name.toUpperCase() === childName.toUpperCase()
       );
       if (existingChild) {
-        console.log("Child node with same name already exists in parent node");
+        alert("Child node with same name already exists in parent node");
         return;
       }
 
       // Check if parent node has maximum 2 children
       if (parentNode.children.length >= 3) {
-        console.log(
-          "Cannot add child to parent node. Maximum 2 children allowed"
-        );
+        alert("Cannot add child to parent node. Maximum 2 children allowed");
         return;
       }
 
@@ -113,7 +112,7 @@ export function GraphDataProvider({ children }) {
       setData(newData);
       Cookies.set("graphData", JSON.stringify(newData));
     } else {
-      console.log("Parent node not found");
+      alert("Parent node not found");
     }
   };
 
@@ -144,44 +143,6 @@ export function GraphDataProvider({ children }) {
     });
   };
 
-  function getSortedNamesByLayer(data) {
-    const results = [];
-    const queue = [data];
-
-    while (queue.length > 0) {
-      const level = [];
-      const levelQueue = [];
-
-      for (const node of queue) {
-        level.push(node);
-        node.children.forEach((child) => levelQueue.push(child));
-      }
-
-      level.sort((a, b) => {
-        const indexA = a.parent ? a.parent.children.indexOf(a) : 0;
-        const indexB = b.parent ? b.parent.children.indexOf(b) : 0;
-        return indexA - indexB;
-      });
-      results.push(level);
-      queue.length = 0;
-      queue.push(...levelQueue);
-    }
-
-    let text = "";
-    results.forEach((level) => {
-      level.forEach((node) => {
-        if (node.isAnswer) {
-          console.log(`Child array ${node.name} has isAnswer true`);
-        }
-        text += node.name + " -> ";
-      });
-    });
-
-    console.log(results); // log the sorted results to the console
-    console.log(text);
-    return results;
-  }
-
   const showAvailableNodeHandle = (data) => {
     const results = [];
     const queue = [data];
@@ -197,14 +158,69 @@ export function GraphDataProvider({ children }) {
     return results;
   };
 
+  const bfs = (data) => {
+    const queue = [{ node: data, depth: 1 }];
+    const result = [];
+
+    while (
+      queue.length > 0 &&
+      !result.some((node) => node.name.endsWith("(Answer)"))
+    ) {
+      const { node, depth } = queue.shift();
+
+      if (node.isAnswer) {
+        result.push({ name: node.name, layer: depth, isAnswer: true });
+        break; // stop when the first answer is found
+      } else {
+        result.push({ name: node.name, layer: depth, isAnswer: false });
+      }
+
+      for (const child of node.children) {
+        queue.push({ node: child, depth: depth + 1 });
+      }
+    }
+
+    return result;
+  };
+
+  const dfs = (data) => {
+    const stack = [{ node: data, depth: 1 }];
+    const result = [];
+
+    while (stack.length > 0) {
+      const { node, depth } = stack.pop();
+
+      if (node.isAnswer) {
+        result.push({ name: node.name, layer: depth, isAnswer: true });
+        break; // stop when the first answer is found
+      } else {
+        result.push({ name: node.name, layer: depth, isAnswer: false });
+      }
+
+      for (let i = node.children.length - 1; i >= 0; i--) {
+        const child = node.children[i];
+        stack.push({ node: child, depth: depth + 1 });
+      }
+    }
+
+    return result;
+  };
+
+  const changeShowAnswerHandler = () => {
+    setShowAnswer(!showAnswer);
+  };
+
   return (
     <GraphDataContext.Provider
       value={{
         data,
+        showAnswer,
         unitAddHandler,
         refreshHandler,
-        getSortedNamesByLayer,
         showAvailableNodeHandle,
+        changeShowAnswerHandler,
+        bfs,
+        dfs,
       }}
     >
       {children}
