@@ -9,7 +9,7 @@ const ShortInfoBoxComponent = () => {
   return (
     <>
       <div
-        className={`flex flex-col items-center gap-12 w-fit h-fit p-8 pt-20 mx-auto text-gray-500 ${
+        className={`flex flex-col items-center gap-12 w-fit h-fit p-8 pt-20 tablet:pt-8 mx-auto text-gray-500 ${
           status ? "tablet:mr-[16rem]" : "tablet:mr-20"
         }`}
       >
@@ -42,7 +42,9 @@ const ShortInfoBoxComponent = () => {
             زبان جاوا اسکریپت در این برنامه برای مقایسه ی همزمان از قابلیت
             (Async) استفاده شده است.
           </p>
-          <h4 className="text-lg font-semibold mt-8">- پروژه ی هوش مصنوعی:</h4>
+          <h4 className="text-lg font-semibold mt-8">
+            - پروژه ی مباحث ویژه ی یک:
+          </h4>
 
           <p className="text-gray-400">مدرس: استاد بخت همت</p>
           <p className="text-gray-400">
