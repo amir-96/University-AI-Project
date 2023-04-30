@@ -145,7 +145,7 @@ const AIProject = ({ route }) => {
         )}
 
         <div
-          className={`flex w-screen tablet:w-fit h-fit mx-auto items-center justify-center rounded-lg ${
+          className={`flex w-screen tablet:w-fit h-fit mx-auto items-center justify-center rounded-lg bg-white ${
             status ? "tablet:mr-28 lg:mr-[17rem]" : "tablet:mr-28 lg:mr-[8rem]"
           }`}
         >

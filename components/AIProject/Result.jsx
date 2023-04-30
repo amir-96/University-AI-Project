@@ -9,11 +9,11 @@ const Result = () => {
   const { data, showAnswer, changeShowAnswerHandler, bfs, dfs } =
     useContext(GraphDataContext);
 
-    const bfsSteps = bfs(data).length - 1;
-    const dfsSteps = dfs(data).length - 1;
+  const bfsSteps = bfs(data).length - 1;
+  const dfsSteps = dfs(data).length - 1;
 
   const checkWinner = () => {
-    if (bfsSteps > dfsSteps) {
+    if (bfsSteps < dfsSteps) {
       return (
         <p>
           الگوریتم{" "}
@@ -21,7 +21,7 @@ const Result = () => {
           جستجو عملکرد بهتری دارد
         </p>
       );
-    } else if (bfsSteps < dfsSteps) {
+    } else if (bfsSteps > dfsSteps) {
       return (
         <p>
           الگوریتم{" "}
@@ -76,9 +76,7 @@ const Result = () => {
         </div>
         <p>
           مراحل طی شده:{" "}
-          <span className="text-green-400 font-bold text-lg">
-            {bfsSteps}
-          </span>
+          <span className="text-green-400 font-bold text-lg">{bfsSteps}</span>
         </p>
         <hr />
       </div>
@@ -115,9 +113,7 @@ const Result = () => {
         </div>
         <p>
           مراحل طی شده:{" "}
-          <span className="text-green-400 font-bold text-lg">
-            {dfsSteps}
-          </span>
+          <span className="text-green-400 font-bold text-lg">{dfsSteps}</span>
         </p>
         <hr />
       </div>
