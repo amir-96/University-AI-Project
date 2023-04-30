@@ -87,7 +87,7 @@ const Slidebar = ({ route }) => {
           <ul className="flex flex-col gap-4 font-medium pt-8 border-t">
             {menu.map((item) => {
               return (
-                <li>
+                <li key={item.name}>
                   <Link
                     href={item.href}
                     className={`flex items-center ${

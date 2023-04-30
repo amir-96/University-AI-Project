@@ -113,10 +113,14 @@ const AIProject = ({ route }) => {
                   >
                     <option value="">گره ی پدر را انتخاب کنید</option>
                     {showAvailableNodeHandle(data).map((item) => {
-                      return <option value={item}>{item}</option>;
+                      return (
+                        <option key={item} value={item}>
+                          {item}
+                        </option>
+                      );
                     })}
                   </select>
-                  <BsChevronUp className="absolute top-3 left-2" />
+                  <BsChevronUp className="absolute top-3 left-2 rotate-180" />
                 </div>
               </div>
               <div>

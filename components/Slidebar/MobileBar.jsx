@@ -55,7 +55,7 @@ const MobileBar = () => {
         <ul className="flex flex-col gap-12 h-[18rem] mt-8 p-4 mr-[-14px]">
           {navigation.map((item) => {
             return (
-              <li>
+              <li key={item.name}>
                 <Link
                   href={item.href}
                   className="flex items-center gap-4 text-xl shadow p-4 hover:bg-gray-200 rounded-md hover:text-[#5046e5]"
