@@ -4,62 +4,7 @@ import Cookies from "js-cookie";
 const graphData = {
   name: "A",
   isAnswer: false,
-  children: [
-    {
-      name: "B",
-      isAnswer: false,
-      children: [
-        {
-          name: "D",
-          isAnswer: false,
-          children: [
-            {
-              name: "I",
-              isAnswer: true,
-              children: [],
-            },
-            {
-              name: "K",
-              isAnswer: false,
-              children: [],
-            },
-          ],
-        },
-        {
-          name: "E",
-          isAnswer: false,
-          children: [],
-        },
-      ],
-    },
-    {
-      name: "C",
-      isAnswer: false,
-      children: [
-        {
-          name: "F",
-          isAnswer: false,
-          children: [
-            {
-              name: "H",
-              isAnswer: false,
-              children: [],
-            },
-            {
-              name: "J",
-              isAnswer: false,
-              children: [],
-            },
-          ],
-        },
-        {
-          name: "G",
-          isAnswer: false,
-          children: [],
-        },
-      ],
-    },
-  ],
+  children: [],
 };
 
 export const GraphDataContext = createContext();

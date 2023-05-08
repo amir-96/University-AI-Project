@@ -4,7 +4,8 @@ import { SlidebarStatusContext } from "@/context/SlidebarStatus";
 import MobileBar from "./MobileBar";
 
 import { RiDashboardFill } from "react-icons/ri";
-import { GiArtificialIntelligence } from "react-icons/gi";
+import { CgSearchFound } from "react-icons/cg";
+import { GiChessQueen } from "react-icons/gi";
 import { BiChalkboard } from "react-icons/bi";
 import { BsGithub } from "react-icons/bs";
 
@@ -13,15 +14,23 @@ const navigation = [
     name: "صفحه ی اصلی",
     href: "/",
     icon: (
-      <RiDashboardFill className="scale-125 w-6 h-6 transition duration-200 dark:text-gray-400 group-hover:scale-[1.35]" />
+      <RiDashboardFill className="h-6 w-6 scale-125 transition duration-200 group-hover:scale-[1.35] dark:text-gray-400" />
     ),
     current: false,
   },
   {
-    name: "هوش مصنوعی",
+    name: "جستجوی عرضی و عمقی",
     href: "/ai-project",
     icon: (
-      <GiArtificialIntelligence className="scale-125 w-6 h-6 transition duration-200 dark:text-gray-400 group-hover:scale-[1.35]" />
+      <CgSearchFound className="h-6 w-6 scale-125 transition duration-200 group-hover:scale-[1.35] dark:text-gray-400" />
+    ),
+    current: false,
+  },
+  {
+    name: "بازی هشت وزیر",
+    href: "/game",
+    icon: (
+      <GiChessQueen className="h-6 w-6 scale-125 transition duration-200 group-hover:scale-[1.35] dark:text-gray-400" />
     ),
     current: false,
   },
@@ -29,7 +38,7 @@ const navigation = [
     name: "مباحث ویژه 1",
     href: "/mabahes1-project",
     icon: (
-      <BiChalkboard className="scale-125 w-6 h-6 transition duration-200 dark:text-gray-400 group-hover:scale-[1.35]" />
+      <BiChalkboard className="h-6 w-6 scale-125 transition duration-200 group-hover:scale-[1.35] dark:text-gray-400" />
     ),
     current: false,
   },
@@ -58,33 +67,33 @@ const Slidebar = ({ route }) => {
 
       <aside
         id="logo-sidebar"
-        className={`hidden tablet:block fixed top-0 right-0 z-40 ${
+        className={`fixed right-0 top-0 z-40 hidden tablet:block ${
           !status ? "w-fit" : "w-64"
-        } h-screen bg-white border-l`}
+        } h-screen border-l bg-white`}
         aria-label="Sidebar"
       >
         <div
           className={`${
             !status && "flex flex-col items-center "
-          }h-full px-3 py-4 overflow-y-auto dark:bg-gray-800`}
+          }h-full overflow-y-auto px-3 py-4 dark:bg-gray-800`}
         >
-          <div className="flex gap-4 items-center pl-2.5 mb-5 py-8 cursor-pointer overflow-hidden">
+          <div className="mb-5 flex cursor-pointer items-center gap-4 overflow-hidden py-8 pl-2.5">
             <img
               onClick={() => changeStatusHandler()}
               src="/images/Logo.svg"
-              className="h-6 mr-3 sm:h-7 scale-[2] hover:rotate-12 transition-all duration-500"
+              className="mr-3 h-6 scale-[2] transition-all duration-500 hover:rotate-12 sm:h-7"
               alt="Flowbite Logo"
             />
             <h1
               className={`${
                 !status && "hidden "
-              }self-center text-xl font-semibold whitespace-nowrap dark:text-white`}
+              }self-center whitespace-nowrap text-xl font-semibold dark:text-white`}
             >
               پروژه های من
             </h1>
           </div>
 
-          <ul className="flex flex-col gap-4 font-medium pt-8 border-t">
+          <ul className="flex flex-col gap-4 border-t pt-8 font-medium">
             {menu.map((item) => {
               return (
                 <li key={item.name}>
@@ -92,7 +101,7 @@ const Slidebar = ({ route }) => {
                     href={item.href}
                     className={`flex items-center ${
                       !status && "w-fit"
-                    } gap-2 p-2 rounded-lg dark:text-white group hover:bg-[#f9fafc] dark:hover:bg-gray-700 hover:text-[#5046e5] ${
+                    } group gap-2 rounded-lg p-2 hover:bg-[#f9fafc] hover:text-[#5046e5] dark:text-white dark:hover:bg-gray-700 ${
                       item.current
                         ? "bg-[#f9fafc] text-[#5046e5]"
                         : "text-gray-700"
@@ -109,17 +118,17 @@ const Slidebar = ({ route }) => {
           </ul>
         </div>
 
-        <div className="absolute bottom-0 right-0 w-full h-fit p-4">
+        <div className="absolute bottom-0 right-0 h-fit w-full p-4">
           <div className="flex flex-col gap-4">
             {status && (
-              <p className="text-sm font-bold text-gray-500 mr-[-2px]">
+              <p className="mr-[-2px] text-sm font-bold text-gray-500">
                 گیت هاب من:
               </p>
             )}
             <a
               href="https://github.com/amir-96/University-AI-Project"
               target="_blank"
-              className="flex items-center gap-4 bg-gray-200 p-4 pr-5 rounded-md"
+              className="flex items-center gap-4 rounded-md bg-gray-200 p-4 pr-5"
             >
               <BsGithub className="scale-[2.5]" />
               {status && <p className="text-md">سورس پروژه</p>}

@@ -11,10 +11,14 @@
   "dependencies": {
     "@badrap/bar-of-progress": "^0.2.2",
     "autoprefixer": "10.4.14",
+    "chessboardjsx": "^2.4.7",
+    "deep-diff": "^1.0.2",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.1",
     "js-cookie": "^3.0.5",
+    "lodash.isequal": "^4.5.0",
     "next": "13.3.1",
+    "next-chess-board": "^0.4.9",
     "nprogress": "^0.2.0",
     "postcss": "8.4.23",
     "react": "18.2.0",
@@ -24,5 +28,9 @@
     "react-tree-graph": "^8.0.1",
     "sqlite3": "^5.1.6",
     "tailwindcss": "3.3.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.2.8"
   }
 }

@@ -2,7 +2,8 @@ import { useState } from "react";
 import Link from "next/link";
 
 import { RiDashboardFill } from "react-icons/ri";
-import { GiArtificialIntelligence } from "react-icons/gi";
+import { CgSearchFound } from "react-icons/cg";
+import { GiChessQueen } from "react-icons/gi";
 import { BiChalkboard } from "react-icons/bi";
 import { BsGithub, BsArrowRightShort } from "react-icons/bs";
 
@@ -16,9 +17,14 @@ const MobileBar = () => {
       icon: <RiDashboardFill className="scale-[2]" />,
     },
     {
-      name: "هوش مصنوعی",
+      name: "جستجوی عرضی و عمقی",
       href: "/ai-project",
-      icon: <GiArtificialIntelligence className="scale-[2]" />,
+      icon: <CgSearchFound className="scale-[2]" />,
+    },
+    {
+      name: "بازی هشت وزیر",
+      href: "/game",
+      icon: <GiChessQueen className="scale-[2]" />,
     },
     {
       name: "مباحث ویژه 1",
