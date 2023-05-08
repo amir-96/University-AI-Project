@@ -5,6 +5,7 @@ import Status from "./Status.js";
 import Timer from "./Timer.js";
 import Title from "./Title.js";
 import dynamic from "next/dynamic.js";
+import Link from "next/link.js";
 
 const Chessboard = dynamic(() => import("chessboardjsx"), { ssr: false });
 
@@ -153,9 +154,9 @@ class EightQueens extends Component {
         </div>
         <div className="EightQueens-header">
           <button className="EightQueens-restart">
-            <a className="rounded border shadow" href=".">
+            <Link className="rounded border shadow" href="/game">
               شروع مجدد
-            </a>
+            </Link>
           </button>
         </div>
       </div>

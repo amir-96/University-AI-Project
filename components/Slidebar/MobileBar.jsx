@@ -35,7 +35,7 @@ const MobileBar = () => {
 
   return (
     <>
-      <div className="fixed tablet:hidden top-4 right-0 w-20 z-40 focus:rotate-45 transition-all duration-500">
+      <div className="fixed right-0 top-4 z-40 w-20 transition-all duration-500 focus:rotate-45 tablet:hidden">
         <img
           onClick={() => setShowMobileBar(true)}
           src="/images/Logo.svg"
@@ -46,25 +46,25 @@ const MobileBar = () => {
       {showMobileBar && (
         <div
           onClick={() => setShowMobileBar(false)}
-          className="fixed inset-0 bg-black opacity-50 z-[78]"
+          className="fixed inset-0 z-[78] bg-black opacity-50"
         />
       )}
       <div
-        className={`fixed tablet:hidden top-0 ${
+        className={`fixed top-0 tablet:hidden ${
           showMobileBar ? "right-0" : "right-[-80vw]"
-        } bottom-0 w-[80vw] bg-white z-[80] p-8 border-l transition-all ease-in duration-200`}
+        } bottom-0 z-[80] w-[80vw] border-l bg-white p-8 transition-all duration-200 ease-in`}
       >
-        <div className="flex items-center pb-5 w-full h-[5rem] border-b">
+        <div className="flex h-[5rem] w-full items-center border-b pb-5">
           <img className="w-20" src="/images/Logo.svg" alt="Logo" />
           <h1 className="text-xl font-semibold">پروژه های من</h1>
         </div>
-        <ul className="flex flex-col gap-12 h-[18rem] mt-8 p-4 mr-[-14px]">
+        <ul className="mr-[-14px] mt-8 flex h-[18rem] flex-col gap-12 p-4">
           {navigation.map((item) => {
             return (
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  className="flex items-center gap-4 text-xl shadow p-4 hover:bg-gray-200 rounded-md hover:text-[#5046e5]"
+                  className="flex items-center gap-4 rounded-md p-4 text-xl shadow hover:bg-gray-200 hover:text-[#5046e5]"
                 >
                   {item.icon}
                   <span className="ml-3 font-[500]">{item.name}</span>
@@ -74,7 +74,7 @@ const MobileBar = () => {
           })}
           <li>
             <a
-              className="flex items-center gap-4 text-xl shadow p-4 hover:bg-gray-200 rounded-md hover:text-[#5046e5]"
+              className="flex items-center gap-4 rounded-md p-4 text-xl shadow hover:bg-gray-200 hover:text-[#5046e5]"
               href="https://github.com/amir-96/University-AI-Project"
               target="_blank"
             >
@@ -86,7 +86,7 @@ const MobileBar = () => {
         <span>
           <BsArrowRightShort
             onClick={() => setShowMobileBar(false)}
-            className="absolute bottom-8 left-8 rounded-full shadow scale-[2.5]"
+            className="absolute bottom-8 left-8 scale-[2.5] rounded-full shadow"
           />
         </span>
       </div>
