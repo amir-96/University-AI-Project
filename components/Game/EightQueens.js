@@ -153,7 +153,10 @@ class EightQueens extends Component {
         </div>
         <div className="EightQueens-header">
           <button className="EightQueens-restart">
-            <a className="rounded border shadow" href="/game">
+            <a
+              className="rounded border shadow"
+              href="https://amir96.iran.liara.run/game"
+            >
               شروع مجدد
             </a>
           </button>
