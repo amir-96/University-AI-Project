@@ -27,7 +27,7 @@ const ShortInfoBoxComponent = () => {
               1 _ پروژه ی هوش مصنوعی
             </p>
           </Link>
-          <Link href="/mabahes-1">
+          <Link href="/game">
             <p className="text-gray-400 hover:cursor-pointer hover:text-gray-700">
               2 _ پروژه ی مباحث ویژه ی 1
             </p>
@@ -47,12 +47,6 @@ const ShortInfoBoxComponent = () => {
           </h4>
 
           <p className="text-gray-400">مدرس: استاد بخت همت</p>
-          <p className="text-gray-400">
-            در این پروژه به دو جدول یکی برای کارکنان و دیگری برای شیفت بندی
-            کارکنان نیاز است. همچنین در این پروژه باید قابلیت مدیریت کارکنان از
-            جمله بازنشسته کردن و اخراج کردن و ویرایش کارکنان وجود داشته باشد.
-            همچنین نیاز است اعتبار سنجی فیلد ها انجام شود.
-          </p>
         </div>
       </div>
     </>

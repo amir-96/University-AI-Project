@@ -26,11 +26,6 @@ const MobileBar = () => {
       href: "/game",
       icon: <GiChessQueen className="scale-[2]" />,
     },
-    {
-      name: "مباحث ویژه 1",
-      href: "/mabahes1-project",
-      icon: <BiChalkboard className="scale-[2]" />,
-    },
   ];
 
   return (

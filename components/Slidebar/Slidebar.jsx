@@ -34,14 +34,6 @@ const navigation = [
     ),
     current: false,
   },
-  {
-    name: "مباحث ویژه 1",
-    href: "/mabahes1-project",
-    icon: (
-      <BiChalkboard className="h-6 w-6 scale-125 transition duration-200 group-hover:scale-[1.35] dark:text-gray-400" />
-    ),
-    current: false,
-  },
 ];
 
 const Slidebar = ({ route }) => {
